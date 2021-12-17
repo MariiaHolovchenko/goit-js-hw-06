@@ -5,19 +5,17 @@ form.addEventListener('submit', onFormSabmit);
 function onFormSabmit(event) {
     event.preventDefault();
 
-    
-    // const formEl = event.currentTarget.elements;
-    // const email = formEl.email.value;
-    // const password = formEl.password.value;
-
-    // const formaData = {
-    //     email, password,
-    // };
     const formData = new FormData(event.currentTarget);
+    const formEl = event.currentTarget.elements;
+    const email = formEl.email.value;
+    const password = formEl.password.value;
+    
+
+    if (email === "" || password === "") {
+        alert("Все поля должны быть заполнены")
+    }
     formData.forEach((value, name) => {
-        if (value === "" || value === null) {
-            alert("Все поля должны быть заполнены")
-        }
-        console.log(name, value)
-    })
+        console.log(`${name}: ${value}`);
+        })
+   
 }
